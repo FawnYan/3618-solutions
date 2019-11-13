@@ -9,12 +9,12 @@ Interest_paid <- 0
 principal_repaid <- 0
 
 for (time in 1:num_payments) {
- Interest_paid[time + 1] <- monthly_interest*outstanding_balance[time]
- principal_repaid[time + 1] <- payment_size - Interest_paid[time + 1]
- outstanding_balance[time + 1] <- outstanding_balance[time] - principal_repaid[time+1]
+ Interest_paid[time] <- monthly_interest*outstanding_balance[time]
+ principal_repaid[time] <- payment_size - Interest_paid[time]}
+ outstanding_balance[time] <- outstanding_balance[time] - principal_repaid[time]
   
-}
-m1 <- matrix(c(Interest_paid, principal_repaid, outstanding_balance), ncol=3)
+
+m1 <- matrix(c(Interestpaid, principal_repaid, outstandingbalance), ncol=3)
 
 rownames(m1) = c("loan", 1:num_payments)
 colnames(m1) = c("Interestpaid", "principalrepaid", "outstanding")
